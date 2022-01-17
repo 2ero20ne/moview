@@ -1,4 +1,7 @@
 {
   "@@locale": "en",
-  "appName": "Moview"
+  "appName": "Moview",
+  "relatedTitle": "Related Movies",
+  "newListTitle": "New List",
+  "popularListTitle": "Popular List"
 }
