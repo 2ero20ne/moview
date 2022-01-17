@@ -1,7 +1,20 @@
 {
   "@@locale": "ja",
+  "apiLanguage": "ja-JP",
   "appName": "モビュー",
   "relatedTitle": "関連映画",
-  "newListTitle": "新着 一覧",
-  "popularListTitle": "人気 一覧"
+  "newListTitle": "高評価 一覧",
+  "popularListTitle": "人気 一覧",
+  "errorApi": "エラーが発生しました。",
+  "errorInternet": "インターネットへの接続に失敗しました。",
+  "errorTimeout": "タイムアウトエラーです。",
+  "errorSocket": "サーバメンテナンス中です。",
+  "errorException": "ネットワーク要求エラーが発生しました。",
+  "confirmDialogTitle": "確認",
+  "confirmDialogOk": "OK",
+  "confirmDialogCancel": "キャンセル",
+  "exceptinDialogTitle": "エラー",
+  "exceptinDialogOk": "OK",
+  "simpleDialogOk": "OK",
+  "noMovie": "映画がありません"
 }

@@ -18,9 +18,14 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$HomeStateTearOff {
   const _$HomeStateTearOff();
 
-  _HomeState call({int Sample = 0}) {
+  _HomeState call(
+      {List<MovieResult>? movieList,
+      List<MovieResult>? popularList,
+      List<MovieResult>? carouselList}) {
     return _HomeState(
-      Sample: Sample,
+      movieList: movieList,
+      popularList: popularList,
+      carouselList: carouselList,
     );
   }
 }
@@ -30,7 +35,9 @@ const $HomeState = _$HomeStateTearOff();
 
 /// @nodoc
 mixin _$HomeState {
-  int get Sample => throw _privateConstructorUsedError;
+  List<MovieResult>? get movieList => throw _privateConstructorUsedError;
+  List<MovieResult>? get popularList => throw _privateConstructorUsedError;
+  List<MovieResult>? get carouselList => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -41,7 +48,10 @@ mixin _$HomeState {
 abstract class $HomeStateCopyWith<$Res> {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
       _$HomeStateCopyWithImpl<$Res>;
-  $Res call({int Sample});
+  $Res call(
+      {List<MovieResult>? movieList,
+      List<MovieResult>? popularList,
+      List<MovieResult>? carouselList});
 }
 
 /// @nodoc
@@ -54,13 +64,23 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? Sample = freezed,
+    Object? movieList = freezed,
+    Object? popularList = freezed,
+    Object? carouselList = freezed,
   }) {
     return _then(_value.copyWith(
-      Sample: Sample == freezed
-          ? _value.Sample
-          : Sample // ignore: cast_nullable_to_non_nullable
-              as int,
+      movieList: movieList == freezed
+          ? _value.movieList
+          : movieList // ignore: cast_nullable_to_non_nullable
+              as List<MovieResult>?,
+      popularList: popularList == freezed
+          ? _value.popularList
+          : popularList // ignore: cast_nullable_to_non_nullable
+              as List<MovieResult>?,
+      carouselList: carouselList == freezed
+          ? _value.carouselList
+          : carouselList // ignore: cast_nullable_to_non_nullable
+              as List<MovieResult>?,
     ));
   }
 }
@@ -71,7 +91,10 @@ abstract class _$HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
           _HomeState value, $Res Function(_HomeState) then) =
       __$HomeStateCopyWithImpl<$Res>;
   @override
-  $Res call({int Sample});
+  $Res call(
+      {List<MovieResult>? movieList,
+      List<MovieResult>? popularList,
+      List<MovieResult>? carouselList});
 }
 
 /// @nodoc
@@ -85,13 +108,23 @@ class __$HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? Sample = freezed,
+    Object? movieList = freezed,
+    Object? popularList = freezed,
+    Object? carouselList = freezed,
   }) {
     return _then(_HomeState(
-      Sample: Sample == freezed
-          ? _value.Sample
-          : Sample // ignore: cast_nullable_to_non_nullable
-              as int,
+      movieList: movieList == freezed
+          ? _value.movieList
+          : movieList // ignore: cast_nullable_to_non_nullable
+              as List<MovieResult>?,
+      popularList: popularList == freezed
+          ? _value.popularList
+          : popularList // ignore: cast_nullable_to_non_nullable
+              as List<MovieResult>?,
+      carouselList: carouselList == freezed
+          ? _value.carouselList
+          : carouselList // ignore: cast_nullable_to_non_nullable
+              as List<MovieResult>?,
     ));
   }
 }
@@ -99,15 +132,18 @@ class __$HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_HomeState implements _HomeState {
-  const _$_HomeState({this.Sample = 0});
+  const _$_HomeState({this.movieList, this.popularList, this.carouselList});
 
-  @JsonKey()
   @override
-  final int Sample;
+  final List<MovieResult>? movieList;
+  @override
+  final List<MovieResult>? popularList;
+  @override
+  final List<MovieResult>? carouselList;
 
   @override
   String toString() {
-    return 'HomeState(Sample: $Sample)';
+    return 'HomeState(movieList: $movieList, popularList: $popularList, carouselList: $carouselList)';
   }
 
   @override
@@ -115,12 +151,19 @@ class _$_HomeState implements _HomeState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _HomeState &&
-            const DeepCollectionEquality().equals(other.Sample, Sample));
+            const DeepCollectionEquality().equals(other.movieList, movieList) &&
+            const DeepCollectionEquality()
+                .equals(other.popularList, popularList) &&
+            const DeepCollectionEquality()
+                .equals(other.carouselList, carouselList));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(Sample));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(movieList),
+      const DeepCollectionEquality().hash(popularList),
+      const DeepCollectionEquality().hash(carouselList));
 
   @JsonKey(ignore: true)
   @override
@@ -129,10 +172,17 @@ class _$_HomeState implements _HomeState {
 }
 
 abstract class _HomeState implements HomeState {
-  const factory _HomeState({int Sample}) = _$_HomeState;
+  const factory _HomeState(
+      {List<MovieResult>? movieList,
+      List<MovieResult>? popularList,
+      List<MovieResult>? carouselList}) = _$_HomeState;
 
   @override
-  int get Sample;
+  List<MovieResult>? get movieList;
+  @override
+  List<MovieResult>? get popularList;
+  @override
+  List<MovieResult>? get carouselList;
   @override
   @JsonKey(ignore: true)
   _$HomeStateCopyWith<_HomeState> get copyWith =>

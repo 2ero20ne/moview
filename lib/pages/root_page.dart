@@ -23,11 +23,17 @@ class RootPage extends StatelessWidget {
         statusBarIconBrightness: Brightness.dark,
         statusBarBrightness: Brightness.dark,
       ),
-      child: Scaffold(
-        appBar: getAppBar(),
-        body: getBody(selectedIndex),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: getFloatingActionButton(context, selectedIndex),
+      child: GestureDetector(
+        child: Scaffold(
+          appBar: getAppBar(),
+          body: getBody(selectedIndex),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerDocked,
+          floatingActionButton: getFloatingActionButton(context, selectedIndex),
+        ),
+        onTap: () {
+          FocusScope.of(context).unfocus();
+        },
       ),
     );
   }
@@ -60,6 +66,7 @@ class RootPage extends StatelessWidget {
     return NavigationBar(
       selectedIndex: selectedIndex,
       onDestinationSelected: (index) {
+        FocusScope.of(context).unfocus();
         context.read<RootStateNotifier>().selectIndex(index);
       },
       labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,

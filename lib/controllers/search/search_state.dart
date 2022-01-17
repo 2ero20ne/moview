@@ -1,10 +1,14 @@
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:moview/models/common/movie_result.dart';
 
 part 'search_state.freezed.dart';
 
 @freezed
 abstract class SearchState with _$SearchState {
   const factory SearchState({
-    @Default(0) int Sample,
+    TextEditingController? searchTextController,
+    List<MovieResult>? movieList,
+    @Default(0) int updateView,
   }) = _SearchState;
 }

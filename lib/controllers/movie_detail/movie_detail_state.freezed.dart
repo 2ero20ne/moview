@@ -18,9 +18,16 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$MovieDetailStateTearOff {
   const _$MovieDetailStateTearOff();
 
-  _MovieDetailState call({int Sample = 0}) {
+  _MovieDetailState call(
+      {MovieDetailResponse? movie,
+      List<MovieResult>? similarList,
+      Set<String>? favoriteList,
+      bool isFavorite = false}) {
     return _MovieDetailState(
-      Sample: Sample,
+      movie: movie,
+      similarList: similarList,
+      favoriteList: favoriteList,
+      isFavorite: isFavorite,
     );
   }
 }
@@ -30,7 +37,10 @@ const $MovieDetailState = _$MovieDetailStateTearOff();
 
 /// @nodoc
 mixin _$MovieDetailState {
-  int get Sample => throw _privateConstructorUsedError;
+  MovieDetailResponse? get movie => throw _privateConstructorUsedError;
+  List<MovieResult>? get similarList => throw _privateConstructorUsedError;
+  Set<String>? get favoriteList => throw _privateConstructorUsedError;
+  bool get isFavorite => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MovieDetailStateCopyWith<MovieDetailState> get copyWith =>
@@ -42,7 +52,13 @@ abstract class $MovieDetailStateCopyWith<$Res> {
   factory $MovieDetailStateCopyWith(
           MovieDetailState value, $Res Function(MovieDetailState) then) =
       _$MovieDetailStateCopyWithImpl<$Res>;
-  $Res call({int Sample});
+  $Res call(
+      {MovieDetailResponse? movie,
+      List<MovieResult>? similarList,
+      Set<String>? favoriteList,
+      bool isFavorite});
+
+  $MovieDetailResponseCopyWith<$Res>? get movie;
 }
 
 /// @nodoc
@@ -56,14 +72,40 @@ class _$MovieDetailStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? Sample = freezed,
+    Object? movie = freezed,
+    Object? similarList = freezed,
+    Object? favoriteList = freezed,
+    Object? isFavorite = freezed,
   }) {
     return _then(_value.copyWith(
-      Sample: Sample == freezed
-          ? _value.Sample
-          : Sample // ignore: cast_nullable_to_non_nullable
-              as int,
+      movie: movie == freezed
+          ? _value.movie
+          : movie // ignore: cast_nullable_to_non_nullable
+              as MovieDetailResponse?,
+      similarList: similarList == freezed
+          ? _value.similarList
+          : similarList // ignore: cast_nullable_to_non_nullable
+              as List<MovieResult>?,
+      favoriteList: favoriteList == freezed
+          ? _value.favoriteList
+          : favoriteList // ignore: cast_nullable_to_non_nullable
+              as Set<String>?,
+      isFavorite: isFavorite == freezed
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
+  }
+
+  @override
+  $MovieDetailResponseCopyWith<$Res>? get movie {
+    if (_value.movie == null) {
+      return null;
+    }
+
+    return $MovieDetailResponseCopyWith<$Res>(_value.movie!, (value) {
+      return _then(_value.copyWith(movie: value));
+    });
   }
 }
 
@@ -74,7 +116,14 @@ abstract class _$MovieDetailStateCopyWith<$Res>
           _MovieDetailState value, $Res Function(_MovieDetailState) then) =
       __$MovieDetailStateCopyWithImpl<$Res>;
   @override
-  $Res call({int Sample});
+  $Res call(
+      {MovieDetailResponse? movie,
+      List<MovieResult>? similarList,
+      Set<String>? favoriteList,
+      bool isFavorite});
+
+  @override
+  $MovieDetailResponseCopyWith<$Res>? get movie;
 }
 
 /// @nodoc
@@ -90,13 +139,28 @@ class __$MovieDetailStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? Sample = freezed,
+    Object? movie = freezed,
+    Object? similarList = freezed,
+    Object? favoriteList = freezed,
+    Object? isFavorite = freezed,
   }) {
     return _then(_MovieDetailState(
-      Sample: Sample == freezed
-          ? _value.Sample
-          : Sample // ignore: cast_nullable_to_non_nullable
-              as int,
+      movie: movie == freezed
+          ? _value.movie
+          : movie // ignore: cast_nullable_to_non_nullable
+              as MovieDetailResponse?,
+      similarList: similarList == freezed
+          ? _value.similarList
+          : similarList // ignore: cast_nullable_to_non_nullable
+              as List<MovieResult>?,
+      favoriteList: favoriteList == freezed
+          ? _value.favoriteList
+          : favoriteList // ignore: cast_nullable_to_non_nullable
+              as Set<String>?,
+      isFavorite: isFavorite == freezed
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -104,15 +168,25 @@ class __$MovieDetailStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_MovieDetailState implements _MovieDetailState {
-  const _$_MovieDetailState({this.Sample = 0});
+  const _$_MovieDetailState(
+      {this.movie,
+      this.similarList,
+      this.favoriteList,
+      this.isFavorite = false});
 
+  @override
+  final MovieDetailResponse? movie;
+  @override
+  final List<MovieResult>? similarList;
+  @override
+  final Set<String>? favoriteList;
   @JsonKey()
   @override
-  final int Sample;
+  final bool isFavorite;
 
   @override
   String toString() {
-    return 'MovieDetailState(Sample: $Sample)';
+    return 'MovieDetailState(movie: $movie, similarList: $similarList, favoriteList: $favoriteList, isFavorite: $isFavorite)';
   }
 
   @override
@@ -120,12 +194,22 @@ class _$_MovieDetailState implements _MovieDetailState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _MovieDetailState &&
-            const DeepCollectionEquality().equals(other.Sample, Sample));
+            const DeepCollectionEquality().equals(other.movie, movie) &&
+            const DeepCollectionEquality()
+                .equals(other.similarList, similarList) &&
+            const DeepCollectionEquality()
+                .equals(other.favoriteList, favoriteList) &&
+            const DeepCollectionEquality()
+                .equals(other.isFavorite, isFavorite));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(Sample));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(movie),
+      const DeepCollectionEquality().hash(similarList),
+      const DeepCollectionEquality().hash(favoriteList),
+      const DeepCollectionEquality().hash(isFavorite));
 
   @JsonKey(ignore: true)
   @override
@@ -134,10 +218,20 @@ class _$_MovieDetailState implements _MovieDetailState {
 }
 
 abstract class _MovieDetailState implements MovieDetailState {
-  const factory _MovieDetailState({int Sample}) = _$_MovieDetailState;
+  const factory _MovieDetailState(
+      {MovieDetailResponse? movie,
+      List<MovieResult>? similarList,
+      Set<String>? favoriteList,
+      bool isFavorite}) = _$_MovieDetailState;
 
   @override
-  int get Sample;
+  MovieDetailResponse? get movie;
+  @override
+  List<MovieResult>? get similarList;
+  @override
+  Set<String>? get favoriteList;
+  @override
+  bool get isFavorite;
   @override
   @JsonKey(ignore: true)
   _$MovieDetailStateCopyWith<_MovieDetailState> get copyWith =>
