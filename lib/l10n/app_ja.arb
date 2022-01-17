@@ -1,4 +1,7 @@
 {
   "@@locale": "ja",
-  "appName": "モビュー"
+  "appName": "モビュー",
+  "relatedTitle": "関連映画",
+  "newListTitle": "新着 一覧",
+  "popularListTitle": "人気 一覧"
 }
