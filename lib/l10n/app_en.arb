@@ -1,7 +1,20 @@
 {
   "@@locale": "en",
+  "apiLanguage": "en-US",
   "appName": "Moview",
   "relatedTitle": "Related Movies",
-  "newListTitle": "New List",
-  "popularListTitle": "Popular List"
+  "newListTitle": "TopRated List",
+  "popularListTitle": "Popular List",
+  "errorApi": "An error has occurred.",
+  "errorInternet": "Failed to connect to the Internet.",
+  "errorTimeout": "Timeout error.",
+  "errorSocket": "Server maintenance in progress.",
+  "errorException": "A network request error has occurred.",
+  "confirmDialogTitle": "Confirm",
+  "confirmDialogOk": "OK",
+  "confirmDialogCancel": "Cancel",
+  "exceptinDialogTitle": "Error",
+  "exceptinDialogOk": "OK",
+  "simpleDialogOk": "OK",
+  "noMovie": "No Movie"
 }
