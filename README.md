@@ -29,3 +29,16 @@
   - 映画の詳細
   - お気に入り登録/解除
   - 関連映画を表示
+
+## Languages
+
+- en-US(英語)
+- ja-JP(日本語)
+
+## AppIcon
+
+<img src="etc/images/icon.png" width="150" >
+
+## ScreenShot
+
+<img src="etc/images/home.png" width="150" > <img src="etc/images/search.png" width=150 > <img src="etc/images/favorite.png" width=150 > <img src="etc/images/detail.png" width=150 >
