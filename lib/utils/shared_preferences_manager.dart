@@ -20,7 +20,7 @@ class SharedManager {
 
   Future<Set<String>> get getFavoriteMovieList async {
     final listStr = await getStringData(sharedKey: _favoriteMovieList);
-    return listStr.split(',').toSet();
+    return listStr.isEmpty ? {} : listStr.split(',').toSet();
   }
 
   Future<void> setFavoriteMovie({
@@ -64,11 +64,15 @@ class SharedManager {
     required String value,
     required String sharedKey,
   }) async {
-    final encryptIv = getEncryptIv();
-    final encrypter = getEncrypter();
-    final encrypted = encrypter.encrypt(value, iv: encryptIv);
     final prefs = await preference;
-    await prefs.setString(sharedKey, encrypted.base64);
+    if (value.isNotEmpty) {
+      final encryptIv = getEncryptIv();
+      final encrypter = getEncrypter();
+      final encrypted = encrypter.encrypt(value, iv: encryptIv);
+      await prefs.setString(sharedKey, encrypted.base64);
+    } else {
+      await prefs.setString(sharedKey, value);
+    }
   }
 
   Future<String> getStringData({required String sharedKey}) async {

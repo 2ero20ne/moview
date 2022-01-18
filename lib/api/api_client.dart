@@ -38,8 +38,6 @@ class ApiClient {
 
         final statusCode = response.statusCode;
 
-        print(response.request);
-
         if (statusCode == 200 || statusCode == 201) {
           final decodeJson = await jsonDecode(
             utf8.decode(response.bodyBytes),
