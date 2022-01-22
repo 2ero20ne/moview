@@ -7,6 +7,5 @@ part 'favorite_state.freezed.dart';
 abstract class FavoriteState with _$FavoriteState {
   const factory FavoriteState({
     List<MovieDetailResponse>? movieList,
-    @Default(0) int updateView,
   }) = _FavoriteState;
 }

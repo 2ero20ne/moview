@@ -59,7 +59,7 @@ class SearchStateNotifier extends StateNotifier<SearchState> with LocatorMixin {
     if (resultCode == ApiStatus.success.code) {
       if (currentSearchText == state.searchTextController!.text) {
         state = state.copyWith(
-          movieList: state.movieList!..addAll(response.results),
+          movieList: [...state.movieList!, ...response.results],
         );
       } else {
         state = state.copyWith(
@@ -68,17 +68,10 @@ class SearchStateNotifier extends StateNotifier<SearchState> with LocatorMixin {
         currentSearchText = state.searchTextController!.text;
       }
       searchPage++;
-      updateView();
     } else {
       throw Exception(
         response.statusMessage,
       );
     }
-  }
-
-  void updateView() {
-    state = state.copyWith(
-      updateView: state.updateView + 1,
-    );
   }
 }

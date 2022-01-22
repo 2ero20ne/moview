@@ -1,4 +1,4 @@
-package com.u2ero20ne.moview.moview
+package com.2ero20ne.moview
 
 import io.flutter.embedding.android.FlutterActivity
 

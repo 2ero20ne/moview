@@ -48,19 +48,12 @@ class FavoriteStateNotifier extends StateNotifier<FavoriteState>
 
     if (resultCode == ApiStatus.success.code) {
       state = state.copyWith(
-        movieList: state.movieList!..add(response),
+        movieList: [...state.movieList!, response],
       );
-      updateView();
     } else {
       throw Exception(
         response.statusMessage,
       );
     }
-  }
-
-  void updateView() {
-    state = state.copyWith(
-      updateView: state.updateView + 1,
-    );
   }
 }
