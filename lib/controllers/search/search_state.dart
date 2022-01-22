@@ -9,6 +9,5 @@ abstract class SearchState with _$SearchState {
   const factory SearchState({
     TextEditingController? searchTextController,
     List<MovieResult>? movieList,
-    @Default(0) int updateView,
   }) = _SearchState;
 }

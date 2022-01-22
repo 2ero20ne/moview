@@ -18,11 +18,9 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$FavoriteStateTearOff {
   const _$FavoriteStateTearOff();
 
-  _FavoriteState call(
-      {List<MovieDetailResponse>? movieList, int updateView = 0}) {
+  _FavoriteState call({List<MovieDetailResponse>? movieList}) {
     return _FavoriteState(
       movieList: movieList,
-      updateView: updateView,
     );
   }
 }
@@ -34,7 +32,6 @@ const $FavoriteState = _$FavoriteStateTearOff();
 mixin _$FavoriteState {
   List<MovieDetailResponse>? get movieList =>
       throw _privateConstructorUsedError;
-  int get updateView => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FavoriteStateCopyWith<FavoriteState> get copyWith =>
@@ -46,7 +43,7 @@ abstract class $FavoriteStateCopyWith<$Res> {
   factory $FavoriteStateCopyWith(
           FavoriteState value, $Res Function(FavoriteState) then) =
       _$FavoriteStateCopyWithImpl<$Res>;
-  $Res call({List<MovieDetailResponse>? movieList, int updateView});
+  $Res call({List<MovieDetailResponse>? movieList});
 }
 
 /// @nodoc
@@ -61,17 +58,12 @@ class _$FavoriteStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? movieList = freezed,
-    Object? updateView = freezed,
   }) {
     return _then(_value.copyWith(
       movieList: movieList == freezed
           ? _value.movieList
           : movieList // ignore: cast_nullable_to_non_nullable
               as List<MovieDetailResponse>?,
-      updateView: updateView == freezed
-          ? _value.updateView
-          : updateView // ignore: cast_nullable_to_non_nullable
-              as int,
     ));
   }
 }
@@ -83,7 +75,7 @@ abstract class _$FavoriteStateCopyWith<$Res>
           _FavoriteState value, $Res Function(_FavoriteState) then) =
       __$FavoriteStateCopyWithImpl<$Res>;
   @override
-  $Res call({List<MovieDetailResponse>? movieList, int updateView});
+  $Res call({List<MovieDetailResponse>? movieList});
 }
 
 /// @nodoc
@@ -100,17 +92,12 @@ class __$FavoriteStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? movieList = freezed,
-    Object? updateView = freezed,
   }) {
     return _then(_FavoriteState(
       movieList: movieList == freezed
           ? _value.movieList
           : movieList // ignore: cast_nullable_to_non_nullable
               as List<MovieDetailResponse>?,
-      updateView: updateView == freezed
-          ? _value.updateView
-          : updateView // ignore: cast_nullable_to_non_nullable
-              as int,
     ));
   }
 }
@@ -118,17 +105,14 @@ class __$FavoriteStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_FavoriteState implements _FavoriteState {
-  const _$_FavoriteState({this.movieList, this.updateView = 0});
+  const _$_FavoriteState({this.movieList});
 
   @override
   final List<MovieDetailResponse>? movieList;
-  @JsonKey()
-  @override
-  final int updateView;
 
   @override
   String toString() {
-    return 'FavoriteState(movieList: $movieList, updateView: $updateView)';
+    return 'FavoriteState(movieList: $movieList)';
   }
 
   @override
@@ -136,16 +120,12 @@ class _$_FavoriteState implements _FavoriteState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _FavoriteState &&
-            const DeepCollectionEquality().equals(other.movieList, movieList) &&
-            const DeepCollectionEquality()
-                .equals(other.updateView, updateView));
+            const DeepCollectionEquality().equals(other.movieList, movieList));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(movieList),
-      const DeepCollectionEquality().hash(updateView));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(movieList));
 
   @JsonKey(ignore: true)
   @override
@@ -154,14 +134,11 @@ class _$_FavoriteState implements _FavoriteState {
 }
 
 abstract class _FavoriteState implements FavoriteState {
-  const factory _FavoriteState(
-      {List<MovieDetailResponse>? movieList,
-      int updateView}) = _$_FavoriteState;
+  const factory _FavoriteState({List<MovieDetailResponse>? movieList}) =
+      _$_FavoriteState;
 
   @override
   List<MovieDetailResponse>? get movieList;
-  @override
-  int get updateView;
   @override
   @JsonKey(ignore: true)
   _$FavoriteStateCopyWith<_FavoriteState> get copyWith =>

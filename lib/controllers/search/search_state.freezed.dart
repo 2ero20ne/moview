@@ -20,12 +20,10 @@ class _$SearchStateTearOff {
 
   _SearchState call(
       {TextEditingController? searchTextController,
-      List<MovieResult>? movieList,
-      int updateView = 0}) {
+      List<MovieResult>? movieList}) {
     return _SearchState(
       searchTextController: searchTextController,
       movieList: movieList,
-      updateView: updateView,
     );
   }
 }
@@ -38,7 +36,6 @@ mixin _$SearchState {
   TextEditingController? get searchTextController =>
       throw _privateConstructorUsedError;
   List<MovieResult>? get movieList => throw _privateConstructorUsedError;
-  int get updateView => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SearchStateCopyWith<SearchState> get copyWith =>
@@ -52,8 +49,7 @@ abstract class $SearchStateCopyWith<$Res> {
       _$SearchStateCopyWithImpl<$Res>;
   $Res call(
       {TextEditingController? searchTextController,
-      List<MovieResult>? movieList,
-      int updateView});
+      List<MovieResult>? movieList});
 }
 
 /// @nodoc
@@ -68,7 +64,6 @@ class _$SearchStateCopyWithImpl<$Res> implements $SearchStateCopyWith<$Res> {
   $Res call({
     Object? searchTextController = freezed,
     Object? movieList = freezed,
-    Object? updateView = freezed,
   }) {
     return _then(_value.copyWith(
       searchTextController: searchTextController == freezed
@@ -79,10 +74,6 @@ class _$SearchStateCopyWithImpl<$Res> implements $SearchStateCopyWith<$Res> {
           ? _value.movieList
           : movieList // ignore: cast_nullable_to_non_nullable
               as List<MovieResult>?,
-      updateView: updateView == freezed
-          ? _value.updateView
-          : updateView // ignore: cast_nullable_to_non_nullable
-              as int,
     ));
   }
 }
@@ -96,8 +87,7 @@ abstract class _$SearchStateCopyWith<$Res>
   @override
   $Res call(
       {TextEditingController? searchTextController,
-      List<MovieResult>? movieList,
-      int updateView});
+      List<MovieResult>? movieList});
 }
 
 /// @nodoc
@@ -114,7 +104,6 @@ class __$SearchStateCopyWithImpl<$Res> extends _$SearchStateCopyWithImpl<$Res>
   $Res call({
     Object? searchTextController = freezed,
     Object? movieList = freezed,
-    Object? updateView = freezed,
   }) {
     return _then(_SearchState(
       searchTextController: searchTextController == freezed
@@ -125,10 +114,6 @@ class __$SearchStateCopyWithImpl<$Res> extends _$SearchStateCopyWithImpl<$Res>
           ? _value.movieList
           : movieList // ignore: cast_nullable_to_non_nullable
               as List<MovieResult>?,
-      updateView: updateView == freezed
-          ? _value.updateView
-          : updateView // ignore: cast_nullable_to_non_nullable
-              as int,
     ));
   }
 }
@@ -136,20 +121,16 @@ class __$SearchStateCopyWithImpl<$Res> extends _$SearchStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_SearchState implements _SearchState {
-  const _$_SearchState(
-      {this.searchTextController, this.movieList, this.updateView = 0});
+  const _$_SearchState({this.searchTextController, this.movieList});
 
   @override
   final TextEditingController? searchTextController;
   @override
   final List<MovieResult>? movieList;
-  @JsonKey()
-  @override
-  final int updateView;
 
   @override
   String toString() {
-    return 'SearchState(searchTextController: $searchTextController, movieList: $movieList, updateView: $updateView)';
+    return 'SearchState(searchTextController: $searchTextController, movieList: $movieList)';
   }
 
   @override
@@ -159,17 +140,14 @@ class _$_SearchState implements _SearchState {
             other is _SearchState &&
             const DeepCollectionEquality()
                 .equals(other.searchTextController, searchTextController) &&
-            const DeepCollectionEquality().equals(other.movieList, movieList) &&
-            const DeepCollectionEquality()
-                .equals(other.updateView, updateView));
+            const DeepCollectionEquality().equals(other.movieList, movieList));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(searchTextController),
-      const DeepCollectionEquality().hash(movieList),
-      const DeepCollectionEquality().hash(updateView));
+      const DeepCollectionEquality().hash(movieList));
 
   @JsonKey(ignore: true)
   @override
@@ -180,15 +158,12 @@ class _$_SearchState implements _SearchState {
 abstract class _SearchState implements SearchState {
   const factory _SearchState(
       {TextEditingController? searchTextController,
-      List<MovieResult>? movieList,
-      int updateView}) = _$_SearchState;
+      List<MovieResult>? movieList}) = _$_SearchState;
 
   @override
   TextEditingController? get searchTextController;
   @override
   List<MovieResult>? get movieList;
-  @override
-  int get updateView;
   @override
   @JsonKey(ignore: true)
   _$SearchStateCopyWith<_SearchState> get copyWith =>
